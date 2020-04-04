@@ -49,7 +49,7 @@ class Test(ToTensor):
         else:
             return img
 
-def download_bsd300(dest="Dataset_m"):
+def download_FITS(dest="Dataset_m"):
     output_image_dir = join(dest, "images")
     return output_image_dir
 
@@ -74,7 +74,7 @@ def target_transform(crop_size):
 
 
 def get_training_set(upscale_factor):
-    root_dir = download_bsd300()
+    root_dir = download_FITS()
     train_dir = join(root_dir, "train")
     crop_size = calculate_valid_crop_size(256, upscale_factor)
 
@@ -84,7 +84,7 @@ def get_training_set(upscale_factor):
 
 
 def get_test_set(upscale_factor):
-    root_dir = download_bsd300()
+    root_dir = download_FITS()
     test_dir = join(root_dir, "test")
     crop_size = calculate_valid_crop_size(256, upscale_factor)
 
