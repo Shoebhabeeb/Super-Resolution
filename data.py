@@ -49,27 +49,8 @@ class Test(ToTensor):
         else:
             return img
 
-def download_bsd300(dest="Dataset_M"):
+def download_bsd300(dest="Dataset_m"):
     output_image_dir = join(dest, "images")
-
-    if not exists(output_image_dir):
-        makedirs(dest)
-        url = "http://www2.eecs.berkeley.edu/Research/Projects/CS/vision/bsds/BSDS300-images.tgz"
-        print("error")
-
-        data = urllib.request.urlopen(url)
-
-        file_path = join(dest, basename(url))
-        with open(file_path, 'wb') as f:
-            f.write(data.read())
-
-        print("Extracting data")
-        with tarfile.open(file_path) as tar:
-            for item in tar:
-                tar.extract(item, dest)
-
-        remove(file_path)
-
     return output_image_dir
 
 
